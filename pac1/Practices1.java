@@ -1,3 +1,4 @@
+package pac1;
 import java.util.Scanner;
 
 public class Practices1
