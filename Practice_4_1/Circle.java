@@ -1,6 +1,6 @@
 package Practice_4_1;
 
-class Circle extends Shape
+public class Circle extends Shape
 {
     private double r;
 
@@ -12,9 +12,12 @@ class Circle extends Shape
     public void setR(double r) {
         this.r = r;
     }
-    public String getType(){return "Circle";}
-    public double getArea(){return Math.PI*r*r;}
-    public double getPerimetr(){return }
+
+    public Circle(){}
+    public Circle(double r){this.r = r;}
+    @Override public String getType(){return "Circle";}
+    @Override public double getArea(){return Math.PI*r*r;}
+    @Override public double getPerimeter(){return Math.PI*2*r;}
 
 
 }
