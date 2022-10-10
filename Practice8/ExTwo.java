@@ -10,12 +10,26 @@ public class ExTwo
         Scanner input = new Scanner(System.in);
         System.out.println("Enter n");
         int n = input.nextInt();
+        ExOne(n);
+        System.out.println();
+        System.out.println("Enter n");
+        n = input.nextInt();
         ExTwo(n);
         System.out.println();
         System.out.println("Enter A and B");
         n = input.nextInt();
         int sec = input.nextInt();
         ExThree(n,sec);
+    }
+
+    public static void ExOne(int n)
+    {
+        if (n < 1) return;
+        ExOne(n - 1);
+        for (int i = 0; i < n; i++)
+        {
+            System.out.print(n + " ");
+        }
     }
     public static void ExTwo(int n)
     {
