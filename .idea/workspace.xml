@@ -58,4 +58,9 @@
       </map>
     </option>
   </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Practices1$App.ic" NAME="App Coverage Results" MODIFIED="1667729501156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Practice18.*</FILTER>
+    </SUITE>
+  </component>
 </project>
