@@ -1,8 +1,5 @@
 package Lists_2;
 
-import Lists_1.ListOfDropouts;
-import Lists_1.Student;
-
 import java.util.Scanner;
 
 public class Test
@@ -12,9 +9,10 @@ public class Test
         System.out.println("1) To create an empty list, enter 1");
         System.out.println("2) To add a student to the list, enter 2");
         System.out.println("3) To display student information, enter 3");
-        System.out.println("4) To clear the list, enter 4");
-        System.out.println("5) To check if the list is empty, enter 5");
-        System.out.println("6) To end session, enter 6 ");
+        System.out.println("4) To remove a student from the list, enter 4");
+        System.out.println("5) To clear the list, enter 5");
+        System.out.println("6) To check if the list is empty, enter 6");
+        System.out.println("7) To end session, enter 7");
         ListOfDropouts Arr = new ListOfDropouts();
         boolean session = true;
         while (session) {
@@ -25,7 +23,7 @@ public class Test
                     if (!Arr.isEmpty()) Arr.cleaningUp();
                     break;
                 case 2:
-                    Lists_1.Student newobj = new Student();
+                    Student newobj = new Student();
                     newobj.setAllFromConsole();
                     Arr.addFront(newobj);
                     break;
@@ -35,13 +33,17 @@ public class Test
                     Arr.GetRecord(input);
                     break;
                 case 4:
+                    System.out.println("enter the student's personal number");
+                    input = myScanner.nextInt();
+                    Arr.recordDeletion(input);
+                case 5:
                     Arr.cleaningUp();
                     break;
-                case 5:
+                case 6:
                     if (Arr.isEmpty()) System.out.println("Empty");
                     else System.out.println("Not empty");
                     break;
-                case 6:
+                case 7:
                     session = false;
                     break;
                 default:

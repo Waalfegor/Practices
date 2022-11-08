@@ -11,8 +11,7 @@ public class ListOfDropouts
 
     public boolean isEmpty()
     {
-        if(this.headline == null) return true;
-        return false;
+        return this.headline == null;
     }
     private void addTail(Student obj, Student other)
     {
@@ -34,23 +33,34 @@ public class ListOfDropouts
         addTail(newobj, headline);
     }
 
-    private void recursiveDeletion(int StudentsIndex, Student obj, Student parent)
+    private void recursiveDeletion(int StudentsIndex, Student obj)
     {
         if((obj.StudentsIndex == StudentsIndex) && (obj.next != null))
         {
-            parent.next = obj.next;
+            obj.parent.next = obj.next;
+            obj.next.parent = obj.parent;
             return;
         }
-        recursiveDeletion(StudentsIndex, obj.next, obj);
+        if(obj.StudentsIndex == StudentsIndex)
+        {
+            obj.parent.next = null;
+            return;
+        }
+        recursiveDeletion(StudentsIndex, obj.next);
     }
 
     public void recordDeletion(int StudentsIndex)
     {
-        if((this.headline.next.StudentsIndex == StudentsIndex) && (this.headline.next.next != null)){
-            this.headline.next = this.headline.next.next;
+        if((this.headline.StudentsIndex == StudentsIndex) && (this.headline.next != null)){
+            this.headline = this.headline.next;
+            headline.next.parent = null;
             return;
         }
-        recursiveDeletion(StudentsIndex, headline.next.next, headline.next);
+        if(this.headline.StudentsIndex == StudentsIndex){
+            this.headline = null;
+            return;
+        }
+        recursiveDeletion(StudentsIndex, headline.next);
     }
 
     private void RecordOut(int studentsIndex, Student obj)
