@@ -1,4 +1,4 @@
-package Lists_1;
+package Lists_3;
 
 public class ListOfDropouts
 {
@@ -17,8 +17,9 @@ public class ListOfDropouts
     private void addTail(Student obj, Student other)
     {
 
-        if(other.next == null) {
+        if(other.next == headline.next) {
             other.next = obj;
+            obj.next = headline.next;
             return;
         }
         addTail(obj, other.next);
@@ -28,6 +29,7 @@ public class ListOfDropouts
     {
         if(this.headline.next == null){
             this.headline.next = newobj;
+            newobj.next = headline.next;
             return;
         }
         addTail(newobj, headline.next);
@@ -35,7 +37,12 @@ public class ListOfDropouts
 
     private void recursiveDeletion(int StudentsIndex, Student obj, Student parent)
     {
-        if((obj.StudentsIndex == StudentsIndex) && (obj.next != null))
+        if((obj.StudentsIndex == StudentsIndex) && (obj.next == headline.next))
+        {
+            parent.next = headline;
+            return;
+        }
+        if(obj.StudentsIndex == StudentsIndex)
         {
             parent.next = obj.next;
             return;
@@ -45,8 +52,8 @@ public class ListOfDropouts
 
     public void recordDeletion(int StudentsIndex)
     {
-        if((this.headline.next.StudentsIndex == StudentsIndex) && (this.headline.next.next != null)){
-            this.headline.next = this.headline.next.next;
+        if((this.headline.next.StudentsIndex == StudentsIndex) && (this.headline.next.next == headline.next)){
+            this.headline.next = null;
             return;
         }
         recursiveDeletion(StudentsIndex, headline.next.next, headline.next);
@@ -54,7 +61,7 @@ public class ListOfDropouts
 
     private void RecordOut(int studentsIndex, Student obj)
     {
-        if(obj == null){
+        if(obj == headline.next){
             System.out.println("No students with this number");
             return;
         }
@@ -70,11 +77,11 @@ public class ListOfDropouts
     {
         if(!isEmpty())
         {
-            if (headline.next.StudentsIndex == studentsIndex) {
-                headline.next.GetAll();
+            if(this.headline.next.StudentsIndex == studentsIndex){
+                this.headline.next.GetAll();
                 return;
             }
-            if (headline.next.next != null) {
+            if (headline.next.next != headline.next) {
                 RecordOut(studentsIndex, headline.next.next);
                 return;
             }
@@ -85,9 +92,9 @@ public class ListOfDropouts
 
     private void cleaning(Student obj, Student parent)
     {
-        if(obj.next != null)
+        if(obj.next != headline.next)
         {
-               cleaning(obj.next, obj);
+            cleaning(obj.next, obj);
         }
         parent.next = null;
     }

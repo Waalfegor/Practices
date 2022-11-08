@@ -36,6 +36,7 @@ public class Test
                     System.out.println("enter the student's personal number");
                     input = myScanner.nextInt();
                     Arr.recordDeletion(input);
+                    break;
                 case 5:
                     Arr.cleaningUp();
                     break;

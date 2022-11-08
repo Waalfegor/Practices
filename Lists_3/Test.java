@@ -1,14 +1,10 @@
-package Lists_1;
-
-import Lists_2.ListOfDropouts;
-import Lists_2.Student;
+package Lists_3;
 
 import java.util.Scanner;
 
-public class Test
+public class Test 
 {
-    public static void main(String[] args)
-    {
+    static public void main(String[] args) {
         Scanner myScanner = new Scanner(System.in);
         System.out.println("1) To create an empty list, enter 1");
         System.out.println("2) To add a student to the list, enter 2");
@@ -17,7 +13,7 @@ public class Test
         System.out.println("5) To clear the list, enter 5");
         System.out.println("6) To check if the list is empty, enter 6");
         System.out.println("7) To end session, enter 7");
-        Lists_2.ListOfDropouts Arr = new ListOfDropouts();
+        ListOfDropouts Arr = new ListOfDropouts();
         boolean session = true;
         while (session) {
             System.out.print("Enter your choice: ");
@@ -27,7 +23,7 @@ public class Test
                     if (!Arr.isEmpty()) Arr.cleaningUp();
                     break;
                 case 2:
-                    Lists_2.Student newobj = new Student();
+                    Student newobj = new Student();
                     newobj.setAllFromConsole();
                     Arr.addFront(newobj);
                     break;
@@ -51,26 +47,17 @@ public class Test
                 case 7:
                     session = false;
                     break;
+                case 8:
+                    for(int i = 0; i < 4; i++){
+                        Student newobj2 = new Student();
+                        newobj2.setAll(Integer.toString(i),Integer.toString(i),Integer.toString(i),Integer.toString(i),i,i);
+                        Arr.addFront(newobj2);
+                    }
+                    break;
                 default:
                     break;
             }
         }
-        /*for(int i = 0;i < 5; i++){
-            Student obj = new Student();
-            Arr.addFront(obj);
-            obj.setAll(Integer.toString(i),Integer.toString(i),Integer.toString(i),Integer.toString(i),i,i);
-        }
-        for(int i = 0;i < 5; i++){
-            Arr.GetRecord(i);
-        }
-        if(!Arr.isEmpty()){
-            Arr.recordDeletion(1);
-        }
-        System.out.println("After removal second student: ");
-        for(int i = 0;i < 5; i++){
-            Arr.GetRecord(i);
-        }
-        Arr.cleaningUp();
-        if(Arr.isEmpty()) System.out.println("Empty list");*/
     }
 }
+
