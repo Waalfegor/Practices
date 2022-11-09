@@ -56,7 +56,7 @@ public class ListOfDropouts
             headline.next.parent = null;
             return;
         }
-        if(this.headline.StudentsIndex == StudentsIndex){
+        if ((this.headline.StudentsIndex == StudentsIndex) && (this.headline.next == null)) {
             this.headline = null;
             return;
         }
