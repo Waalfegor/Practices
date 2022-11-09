@@ -31,11 +31,15 @@ public class ListForVarTwo
     }
     private void AddInBeginning(Node obj)
     {
-        Node tempNode = this.head;
-        obj.parent = null;
+        if(this.head != null) {
+            Node tempNode = this.head;
+            obj.parent = null;
+            this.head = obj;
+            this.head.next = tempNode;
+            tempNode.parent = this.head;
+            return;
+        }
         this.head = obj;
-        this.head.next = tempNode;
-        tempNode.parent = this.head;
     }
     private void recursiveDeletion(int index, Node obj)
     {

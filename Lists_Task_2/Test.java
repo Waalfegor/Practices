@@ -19,7 +19,7 @@ public class Test
             Arr.addNode(newObj);
         }
         Arr.Sort();
-        for(int i = 0; i < input + 1; i++){
+        for(int i = 1; i <= input; i++){
             Arr.GetNode(i);
         }
     }
